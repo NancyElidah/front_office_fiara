@@ -53,7 +53,7 @@ class Login extends Component{
             if(res.data.token === null){
                 alert("vous n'êtes pas inscrit sur cette site") ; 
             }else{
-                if(res.data.status == 5){
+                if(res.data.status === 5){
                     console.log(res.data.user);
                     sessionStorage.setItem("utilisateur",res.data.user);
                     sessionStorage.setItem("token",res.data.token);
