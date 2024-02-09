@@ -5,9 +5,9 @@ import sary from "../assets/vendors/images/v1.jpg"
 import { Link } from "react-router-dom";
 
 class RechercheAvance extends Component{
-    constructor(props){
-        super(props);
-    }
+    // constructor(props){
+    //     super(props);
+    // }
     render(){
         return(
             <>
