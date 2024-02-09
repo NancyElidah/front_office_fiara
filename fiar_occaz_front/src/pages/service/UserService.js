@@ -9,6 +9,7 @@ class UserService {
             }
         });
     }
-    
 }
-export default new UserService();
+
+const userServiceInstance = new UserService();
+export default userServiceInstance;
