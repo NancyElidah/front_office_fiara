@@ -22,7 +22,7 @@ class RechercheAvance extends Component{
 								<div className="product-box">
 									<div className="producct-img"><img src={sary} alt=""/></div>
 									<div className="product-caption">
-										<h4><a href="#">Gufram Bounce Black</a></h4>
+										<h4>Gufram Bounce Black</h4>
 										<div className="price">
 											<del>$55.5</del><ins>$49.5</ins>
 										</div>
@@ -35,7 +35,7 @@ class RechercheAvance extends Component{
 								<div className="product-box">
 									<div className="producct-img"><img src={sary} alt=""/></div>
 									<div className="product-caption">
-										<h4><a href="#">Gufram Bounce White</a></h4>
+										<h4>Gufram Bounce White</h4>
 										<div className="price">
 											<del>$75.5</del><ins>$50</ins>
 										</div>
@@ -48,7 +48,7 @@ class RechercheAvance extends Component{
 								<div className="product-box">
 									<div className="producct-img"><img src={sary} alt=""/></div>
 									<div className="product-caption">
-										<h4><a href="#">Contrast Lace-Up Sneakers</a></h4>
+										<h4>Contrast Lace-Up Sneakers</h4>
 										<div className="price">
 											<ins>$80</ins>
 										</div>
@@ -61,7 +61,7 @@ class RechercheAvance extends Component{
 								<div className="product-box">
 									<div className="producct-img"><img src={sary} alt=""/></div>
 									<div className="product-caption">
-										<h4><a href="#">Apple Watch Series 3</a></h4>
+										<h4>Apple Watch Series 3</h4>
 										<div className="price">
 											<ins>$380</ins>
 										</div>
@@ -75,7 +75,7 @@ class RechercheAvance extends Component{
 								<div className="product-box">
 									<div className="producct-img"><img src={sary} alt=""/></div>
 									<div className="product-caption">
-										<h4><a href="#">Gufram Bounce White</a></h4>
+										<h4>Gufram Bounce White</h4>
 										<div className="price">
 											<del>$75.5</del><ins>$50</ins>
 										</div>
@@ -88,7 +88,7 @@ class RechercheAvance extends Component{
 								<div className="product-box">
 									<div className="producct-img"><img src={sary} alt=""/></div>
 									<div className="product-caption">
-										<h4><a href="#">Apple Watch Series 3</a></h4>
+										<h4>Apple Watch Series 3</h4>
 										<div className="price">
 											<ins>$380</ins>
 										</div>
@@ -101,7 +101,7 @@ class RechercheAvance extends Component{
 								<div className="product-box">
 									<div className="producct-img"><img src={sary} alt="" /></div>
 									<div className="product-caption">
-										<h4><a href="#">Gufram Bounce Black</a></h4>
+										<h4>Gufram Bounce Black</h4>
 										<div className="price">
 											<del>$55.5</del><ins>$49.5</ins>
 										</div>
@@ -114,7 +114,7 @@ class RechercheAvance extends Component{
 								<div className="product-box">
 									<div className="producct-img"><img src={sary} alt="" /></div>
 									<div className="product-caption">
-										<h4><a href="#">Contrast Lace-Up Sneakers</a></h4>
+										<h4>Contrast Lace-Up Sneakers</h4>
 										<div className="price">
 											<ins>$80</ins>
 										</div>
@@ -128,7 +128,7 @@ class RechercheAvance extends Component{
 								<div className="product-box">
 									<div className="producct-img"><img src={sary} alt="" /></div>
 									<div className="product-caption">
-										<h4><a href="#">Gufram Bounce Black</a></h4>
+										<h4>Gufram Bounce Black</h4>
 										<div className="price">
 											<del>$55.5</del><ins>$49.5</ins>
 										</div>
@@ -141,7 +141,7 @@ class RechercheAvance extends Component{
 								<div className="product-box">
 									<div className="producct-img"><img src={sary} alt="" /></div>
 									<div className="product-caption">
-										<h4><a href="#">Gufram Bounce White</a></h4>
+										<h4>Gufram Bounce White</h4>
 										<div className="price">
 											<del>$75.5</del><ins>$50</ins>
 										</div>
@@ -154,7 +154,7 @@ class RechercheAvance extends Component{
 								<div className="product-box">
 									<div className="producct-img"><img src={sary} alt="" /></div>
 									<div className="product-caption">
-										<h4><a href="#">Contrast Lace-Up Sneakers</a></h4>
+										<h4>Contrast Lace-Up Sneakers</h4>
 										<div className="price">
 											<ins>$80</ins>
 										</div>
@@ -166,7 +166,7 @@ class RechercheAvance extends Component{
 								<div className="product-box">
 									<div className="producct-img"><img src={sary} alt="" /></div>
 									<div className="product-caption">
-										<h4><a href="#">Apple Watch Series 3</a></h4>
+										<h4>Apple Watch Series 3</h4>
 										<div className="price">
 											<ins>$380</ins>
 										</div>
