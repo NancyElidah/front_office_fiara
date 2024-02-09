@@ -98,9 +98,6 @@ class Chat extends Component{
 													<div className="upload-file-box clearfix">
 														<div className="left">
 															<div className="overlay">
-																<a href="#">
-																	<span><i className="fa fa-angle-down"></i></span>
-																</a>
 															</div>
 														</div>
 													</div>

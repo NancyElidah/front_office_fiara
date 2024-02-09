@@ -58,7 +58,8 @@ class Login extends Component{
                     sessionStorage.setItem("utilisateur",res.data.user);
                     sessionStorage.setItem("token",res.data.token);
                     sessionStorage.setItem("user",res.data.name);
-                    this.props.navigation(`/${sessionStorage.getItem("token")}`+"/"+this.state.lien);
+                    this.props.navigation(`/${sessionStorage.getItem("token")}/${this.state.lien}`);
+
                 }else{
                     alert("Erreur");
                 }
