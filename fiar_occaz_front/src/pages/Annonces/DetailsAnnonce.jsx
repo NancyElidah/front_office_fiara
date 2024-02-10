@@ -3,7 +3,7 @@ import Header from "../Header";
 import Footer from "../Footer";
 import sary from "../assets/vendors/images/v1.jpg";	
 import { Link } from "react-router-dom";
-
+import AnnonceServiceInstance from "../service/AnnonceService";
 
 class DetailsAnnonce extends Component{
 	constructor(props){
@@ -38,7 +38,7 @@ class DetailsAnnonce extends Component{
         let token = sessionStorage.getItem("token");
         let user = sessionStorage.getItem("utilisateur");
 
-        AnnonceService.getOneAnnonce(token, user, this.state.id).then((res) => {
+        AnnonceServiceInstance.getOneAnnonce(token, user, this.state.id).then((res) => {
             this.setState({ 
                 description : res.data.description ,
                 prix:res.data.voiture.prix,
@@ -63,7 +63,7 @@ class DetailsAnnonce extends Component{
         console.log(energie);
         let token = sessionStorage.getItem("token");
         let id = sessionStorage.getItem("utilisateur");
-        AnnonceService.validAnnonce(token,id,this.state.id).then(() => {
+        AnnonceServiceInstance.validAnnonce(token,id,this.state.id).then(() => {
             this.setState({
                 message:'insertion reussie'
             })
