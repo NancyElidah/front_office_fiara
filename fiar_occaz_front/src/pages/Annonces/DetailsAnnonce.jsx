@@ -28,13 +28,6 @@ class DetailsAnnonce extends Component{
     componentDidMount() {
         this.fetchData();
     }
-
-    FetchDataComponent = () => {
-        useEffect(() => {
-            this.fetchData();
-        }, [this.state]);
-        return null;
-    }
     fetchData = () => {
         let token = sessionStorage.getItem("token");
         let user = sessionStorage.getItem("utilisateur");
