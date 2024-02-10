@@ -6,98 +6,145 @@ import { Link } from "react-router-dom";
 
 
 class DetailsAnnonce extends Component{
-	// constructor(props){
-	// 	super(props);
-    // }
+	constructor(props){
+        super(props);
+        this.state = {
+            message: '',
+            id: this.props.params.idannonce,
+            description : '',
+            prix :'',
+            type :'',
+            modele:'',
+            marque:'',
+            boite:'',
+            energie:'',
+            couleur:'',
+            nombre_place :'',
+            nombre_porte:''
+        }
+        this.valid = this.valid.bind(this);
+    }
+    componentDidMount() {
+        this.fetchData();
+    }
+
+    FetchDataComponent = () => {
+        useEffect(() => {
+            this.fetchData();
+        }, [this.state]);
+        return null;
+    }
+    fetchData = () => {
+        let token = sessionStorage.getItem("token");
+        let user = sessionStorage.getItem("utilisateur");
+
+        AnnonceService.getOneAnnonce(token, user, this.state.id).then((res) => {
+            this.setState({ 
+                description : res.data.description ,
+                prix:res.data.voiture.prix,
+                type:res.data.voiture.type.nom,
+                modele:res.data.voiture.modele.nom,
+                marque:res.data.voiture.marque.nom,
+                boite:res.data.voiture.boiteVitesse.nom,
+                energie: res.data.voiture.energie.energie,
+                couleur:res.data.voiture.couleur.nom,
+                nombre_place:res.data.voiture.nbPlace,
+                nombre_porte:res.data.voiture.nbPorte
+            });
+        });
+    }
+    valid = (e) => {
+        e.preventDefault();
+        // console.log("teste");
+        let energie = {
+            idenergie:null,
+            energie : this.state.energie
+        }
+        console.log(energie);
+        let token = sessionStorage.getItem("token");
+        let id = sessionStorage.getItem("utilisateur");
+        AnnonceService.validAnnonce(token,id,this.state.id).then(() => {
+            this.setState({
+                message:'insertion reussie'
+            })
+        });
+        this.props.navigation(`/:${sessionStorage.getItem("token")}/liste_annonce`);   
+        // alert("insertion réussie");
+        
+    }
 
     render(){
 		return(
             <>
-            <Header/>
-            <div className="main-container" style={{marginTop:-150}}>
-		<div className="pd-ltr-20 xs-pd-20-10">
-			<div className="min-height-200px">
-				<div className="product-wrap">
-					<div className="product-detail-wrap mb-30">
-						<div className="row">
-							<div className="col-lg-6 col-md-12 col-sm-12">
-								<div className="product-slider slider-arrow">
-									<div className="product-slide">
-										<img src={sary} alt="" />
-									</div>
-								</div>
-							</div>
-							<div className="col-lg-6 col-md-12 col-sm-12">
-								<div className="product-detail-desc pd-20 card-box height-100-p">
-									<div className="pull-right">
-										<Link to="/" className="btn  btn-sm scroll-click" rel="content-y"  data-toggle="collapse"  ><i class="icon-copy fa fa-heart" aria-hidden="true" style={{width:20}}></i></Link>
-									</div>
-                                    <div className="pull-right" style={{marginRight:20}}>
-										<Link to="/all_chat" className="btn  btn-sm scroll-click" rel="content-y"  data-toggle="collapse"  ><i class="icon-copy fa fa-wechat" aria-hidden="true"></i></Link>
-									</div>
-									<h4 className="mb-20 pt-20">Gufram Bounce Black</h4>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-									<div className="price">
-										<del>$55.5</del><ins>$49.5</ins>
-									</div>
-									<table className="table" style={{border:"less"}}>
+                  <Header></Header>
+                <div class="main-container">
+    <div class="pd-ltr-20">
+        <div class="card-box pd-20 height-100-p mb-30" style={{marginTop:-150}}>
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <img src={sary} alt="" />
+                </div>
+                
+                <div class="col-md-8">
+                <div className="pull-right">
+                    <Link to={`${sessionStorage.getItem("token")}/liste_annonce`} className="btn btn-primary btn-sm scroll-click" rel="content-y"  data-toggle="collapse" role="button" ><i className="fa fa-remove"></i></Link>
+                </div>
+                    <p class="font-18 max-width-600">{this.state.description}.</p>
+                    
+                    <table className="table" style={{border:"less"}}>
                             <thead>
                             </thead>
                             <tbody>
                                         <td>Prix</td>
-                                        <td></td>
+                                        <td>{this.state.prix}</td>
                                         <tr></tr>
                                         <td>Type</td>
-                                        <td></td>
+                                        <td>{this.state.type}</td>
                                         <tr></tr>
 
                                         <td>Modele</td>
-                                        <td></td>
+                                        <td>{this.state.modele}</td>
                                         <tr></tr>
 
                                         <td>Marque</td>
-                                        <td></td>
+                                        <td>{this.state.marque}</td>
 
                                         <tr></tr>
 
                                         <td>Boite de vitesse</td>
-                                        <td></td>
+                                        <td>{this.state.boite}</td>
 
 
                                         <tr></tr>
 
                                         <td>Energie</td>
-                                        <td></td>
+                                        <td>{this.state.energie}</td>
 
                                         <tr></tr>
 
                                         <td>Couleur</td>
-                                        <td></td>
+                                        <td>{this.state.couleur}</td>
 
                                         <tr></tr>
 
                                         <td>Nombre de place</td>
-                                        <td></td>
+                                        <td>{this.state.nombre_place}</td>
 
                                         <tr></tr>
 
                                         <td>Nombre de porte</td>
-                                        <td></td>
+                                        <td>{this.state.nombre_porte}</td>
                             </tbody>
                         </table>
-									<div className="row">
-										<div className="col-md-6 col-12" style={{marginLeft:250}}>
-											<Link to="" className="btn btn-outline-primary btn-block">Acheter</Link>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-                </div></div></div></div>
-				
-            <Footer/>
+                </div>
+                
+                <div className="col-sm-12 col-md-12">
+                    <button className="btn btn-primary" onClick = {this.valid} style={{width:250 , marginLeft:820}}>Valider</button>
+                </div>
+            </div>
+        </div>
+        </div></div>
+        <Footer></Footer>
             </>
         );
     }
