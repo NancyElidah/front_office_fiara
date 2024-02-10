@@ -25,7 +25,6 @@ class DetailsAnnonce extends Component{
             nombre_place :'',
             nombre_porte:''
         }
-        this.valid = this.valid.bind(this);
     }
     componentDidMount() {
         this.fetchData();
