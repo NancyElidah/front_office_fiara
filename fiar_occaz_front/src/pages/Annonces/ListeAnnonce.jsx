@@ -45,7 +45,7 @@ class ListeAnnonce extends Component {
                                                             <div className="price">
                                                                 <ins>AR {annonce.prix}</ins>
                                                             </div>
-                                                            <Link to="/details_annonce" className="btn btn-outline-primary" style={{ marginLeft:  250 }}>
+                                                            <Link to={`details_annonce/${annonce.idannonce}`}  className="btn btn-outline-primary" style={{ marginLeft:  250 }}>
                                                                 Voir
                                                             </Link>
                                                         </div>

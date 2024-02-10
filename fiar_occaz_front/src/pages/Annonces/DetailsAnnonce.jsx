@@ -10,7 +10,7 @@ class DetailsAnnonce extends Component{
         super(props);
         this.state = {
             message: '',
-            id: this.props.params.idannonce,
+            id: this.props.params.id,
             description : '',
             prix :'',
             type :'',
