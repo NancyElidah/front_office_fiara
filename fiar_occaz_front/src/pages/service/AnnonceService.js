@@ -1,9 +1,9 @@
 import axios from 'axios';
-const base_url = "https://fiarapartie2-production.up.railway.app/login";
+const base_url = "https://fiarapartie2-production.up.railway.app/v_annonce_2";
 
 class AnnonceService {
-    getAllPublication(){
-        
+    getAllPublication(token , id){
+        return axios.post(base_url+'/'+token+'/get/'+id+'/1/0');
     }
 }
 
