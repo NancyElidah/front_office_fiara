@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import AnnonceServiceInstance from "../service/AnnonceService";
 import withRouter from "../Navigation/WithRouter";
 import withNavigateHook from "../Navigation/WithNavigateHook";
+import FavorisInstance from "../service/Favoris";
 
 class DetailsAnnonce extends Component{
 	constructor(props){
@@ -48,6 +49,18 @@ class DetailsAnnonce extends Component{
         });
     }
 
+    addToFavoris(e){
+		e.preventDefault();
+        if(sessionStorage.getItem("token")!== null && sessionStorage.getItem("utilisateur")){
+            FavorisInstance.addFavoris().then(() => {
+                this.props.navigation(`/:${sessionStorage.getItem("token")}/liste_favoris`);    
+        }
+        );
+        }else {
+            this.props.navigation(`/login/${true}/${"details_annonce/" + this.state.id}`);
+        }
+    }
+
     render(){
 		return(
             <>
@@ -62,7 +75,7 @@ class DetailsAnnonce extends Component{
                 
                 <div class="col-md-8">
                 <div className="pull-right">
-                    <Link to="/" className="btn  btn-sm scroll-click" rel="content-y"  data-toggle="collapse"  ><i class="icon-copy fa fa-heart" aria-hidden="true" style={{width:20}}></i></Link>
+                    <button to="/" className="btn  btn-sm scroll-click" rel="content-y"  data-toggle="collapse"  ><i class="icon-copy fa fa-heart" aria-hidden="true" style={{width:20}}></i></button>
                 </div>
                 <div className="pull-right" style={{marginRight:20}}>
                     <Link to="/all_chat" className="btn  btn-sm scroll-click" rel="content-y"  data-toggle="collapse"  ><i class="icon-copy fa fa-wechat" aria-hidden="true"></i></Link>
@@ -115,10 +128,6 @@ class DetailsAnnonce extends Component{
                                         <td>{this.state.nombre_porte}</td>
                             </tbody>
                         </table>
-                </div>
-                
-                <div className="col-sm-12 col-md-12">
-                    <button className="btn btn-primary" onClick = {this.valid} style={{width:250 , marginLeft:820}}>Valider</button>
                 </div>
             </div>
         </div>
