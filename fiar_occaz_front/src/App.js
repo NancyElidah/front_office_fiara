@@ -42,7 +42,7 @@ function App() {
               <Route path="/recherche_annee" element= {<AnneeRecherche/>}/>
               <Route path="/resultat_annonce/:tab" element= {<ListeRecherche/>}/>
               <Route path="/:token/all_chat" element= {<ListeChat/>}/>
-              <Route path="/:token/chat" element= {<Chat/>}/>
+              <Route path="/chat" element= {<Chat/>}/>
               <Route path="/recherche_avance" element= {<RechercheAvance/>}/>
           </Routes>
       </>

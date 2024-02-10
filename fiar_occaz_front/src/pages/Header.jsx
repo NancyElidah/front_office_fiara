@@ -35,7 +35,7 @@ class Header extends Component {
 		  this.setState({
 			lien_favoris: `login/${true}/${"liste_favoris"}`,
 			lien_historique: `login/${true}/${"historique"}`,
-			lien_chat: `login/${true}/${"chat"}`
+			lien_chat: `login/${true}/${"all_chat"}`
 		  });
 		}
 	 }
