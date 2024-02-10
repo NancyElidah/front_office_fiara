@@ -13,6 +13,7 @@ class DetailsAnnonce extends Component{
         this.state = {
             message: '',
             id: this.props.params.id,
+            user :'',
             description : '',
             prix :'',
             type :'',
@@ -33,6 +34,7 @@ class DetailsAnnonce extends Component{
 
         AnnonceServiceInstance.getOneAnnonce(this.state.id).then((res) => {
             this.setState({ 
+                user :res.data.utilisateur.nom,
                 description : res.data.description ,
                 prix:res.data.voiture.prix,
                 type:res.data.voiture.type.nom,
@@ -45,25 +47,6 @@ class DetailsAnnonce extends Component{
                 nombre_porte:res.data.voiture.nbPorte
             });
         });
-    }
-    valid = (e) => {
-        e.preventDefault();
-        // console.log("teste");
-        let energie = {
-            idenergie:null,
-            energie : this.state.energie
-        }
-        console.log(energie);
-        let token = sessionStorage.getItem("token");
-        let id = sessionStorage.getItem("utilisateur");
-        AnnonceServiceInstance.validAnnonce(token,id,this.state.id).then(() => {
-            this.setState({
-                message:'insertion reussie'
-            })
-        });
-        this.props.navigation(`/:${sessionStorage.getItem("token")}/liste_annonce`);   
-        // alert("insertion réussie");
-        
     }
 
     render(){
@@ -80,8 +63,12 @@ class DetailsAnnonce extends Component{
                 
                 <div class="col-md-8">
                 <div className="pull-right">
-                    <Link to={`${sessionStorage.getItem("token")}/liste_annonce`} className="btn btn-primary btn-sm scroll-click" rel="content-y"  data-toggle="collapse" role="button" ><i className="fa fa-remove"></i></Link>
+                    <Link to="/" className="btn  btn-sm scroll-click" rel="content-y"  data-toggle="collapse"  ><i class="icon-copy fa fa-heart" aria-hidden="true" style={{width:20}}></i></Link>
                 </div>
+                <div className="pull-right" style={{marginRight:20}}>
+                    <Link to="/all_chat" className="btn  btn-sm scroll-click" rel="content-y"  data-toggle="collapse"  ><i class="icon-copy fa fa-wechat" aria-hidden="true"></i></Link>
+                </div>
+                    <h4 className="mb-20 pt-20">{this.state.user}</h4>
                     <p class="font-18 max-width-600">{this.state.description}.</p>
                     
                     <table className="table" style={{border:"less"}}>
