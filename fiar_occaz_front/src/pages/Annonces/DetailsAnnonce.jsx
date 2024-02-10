@@ -4,6 +4,8 @@ import Footer from "../Footer";
 import sary from "../assets/vendors/images/v1.jpg";	
 import { Link } from "react-router-dom";
 import AnnonceServiceInstance from "../service/AnnonceService";
+import withRouter from "../Navigation/WithRouter";
+import withNavigateHook from "../Navigation/WithNavigateHook";
 
 class DetailsAnnonce extends Component{
 	constructor(props){
@@ -142,4 +144,4 @@ class DetailsAnnonce extends Component{
         );
     }
 };
-export default DetailsAnnonce ;
+export default withNavigateHook(withRouter(DetailsAnnonce)) ;
