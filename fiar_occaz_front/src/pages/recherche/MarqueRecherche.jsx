@@ -2,6 +2,7 @@ import { Component } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import withNavigateHook from "../Navigation/WithNavigateHook";
+import MarqueService from "../service/MarqueService";
 class MarqueRecherche extends Component{
     constructor (props){
         super(props);
@@ -11,8 +12,14 @@ class MarqueRecherche extends Component{
         }
     }
     componentDidMount() {
-        
-    }
+        MarqueService.getAllMarque()
+           .then((res) => {
+             this.setState({ type: res.data });
+           })
+           .catch((error) => {
+             console.error('Error fetching data: ', error);
+           });
+       }
     handleIdType = (e) => {
         var value = e.target.value;
         this.setState({

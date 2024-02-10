@@ -2,6 +2,7 @@ import { Component } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import withNavigateHook from "../Navigation/WithNavigateHook";
+import EnergieService from "../service/EnergieService";
 class Energie extends Component{
     constructor (props){
         super(props);
@@ -11,8 +12,14 @@ class Energie extends Component{
         }
     }
     componentDidMount() {
-        
-    }
+       EnergieService.getAllEnergie()
+          .then((res) => {
+            this.setState({ type: res.data });
+          })
+          .catch((error) => {
+            console.error('Error fetching data: ', error);
+          });
+      }
     handleIdType = (e) => {
         var value = e.target.value;
         this.setState({
@@ -48,7 +55,7 @@ class Energie extends Component{
 									<option selected="">Choisir...</option>
 									{
                                     this.state.type.map(
-                                      carte => <option value={carte.idType} key={carte.idType} >{carte.nom}</option>
+                                      carte => <option value={carte.idEnergie} key={carte.idEnergie} >{carte.energie}</option>
                                     )}
 								</select>
 							</div>

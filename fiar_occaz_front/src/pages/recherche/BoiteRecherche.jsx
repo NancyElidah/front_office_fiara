@@ -2,27 +2,36 @@ import { Component } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import withNavigateHook from "../Navigation/WithNavigateHook";
+import BoiteInstance from "../service/Boite";
 class BoiteRechere extends Component{
     constructor (props){
         super(props);
         this.state = {
             type:[],
-            idType :''        
+            idbv :''        
         }
     }
     componentDidMount() {
-        
-    }
-    handleIdType = (e) => {
+        BoiteInstance.getAllBoite()
+          .then((res) => {
+            this.setState({ type: res.data });
+          })
+          .catch((error) => {
+            console.error('Error fetching data: ', error);
+          });
+      }
+    handleidbv = (e) => {
         var value = e.target.value;
         this.setState({
-          idType: value
+          idbv: value
         });
+        alert(this.state.idbv);
     }
     searchType =(e)=>{
         e.preventDefault();
-        
-        this.props.navigation("/resultat_annonce");
+        BoiteInstance.getResBoite(this.state.idbv).then((res) => {
+            this.props.navigation(`/resultat_annonce/${res.data}`);
+        });
 
     }
 
@@ -44,11 +53,11 @@ class BoiteRechere extends Component{
                     <div class="form-group row" style={{marginLeft:50}}>
 							<label class="col-sm-12 col-md-2 col-form-label">Boite de vitèsse</label>
 							<div class="col-sm-12 col-md-8">
-								<select class="custom-select col-12" value={this.state.idType} onChange={this.handleIdType}>
+								<select class="custom-select col-12" value={this.state.idbv} onChange={event => this.handleidbv(event)}>
 									<option selected="">Choisir...</option>
 									{
                                     this.state.type.map(
-                                      carte => <option value={carte.idType} key={carte.idType} >{carte.nom}</option>
+                                      carte => <option value={carte.idbv} key={carte.idbv} >{carte.nom}</option>
                                     )}
 								</select>
 							</div>

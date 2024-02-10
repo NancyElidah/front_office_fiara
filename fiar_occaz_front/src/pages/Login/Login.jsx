@@ -58,9 +58,10 @@ class Login extends Component{
                     sessionStorage.setItem("utilisateur",res.data.user);
                     sessionStorage.setItem("token",res.data.token);
                     sessionStorage.setItem("user",res.data.name);
-					if(this.props.params.idUtils===null){
+					if(this.props.params.idUtils===undefined){
 						this.props.navigation(`/${sessionStorage.getItem("token")}/${this.state.lien}`);
-					}else{
+					}else if (this.props.params.idUtils!=='undefined'){
+						alert(this.props.params.idUtils);
 						this.props.navigation(`/${sessionStorage.getItem("token")}/${this.state.lien}/${this.props.params.idUtils}`);
 					}
 

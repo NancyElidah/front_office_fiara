@@ -2,6 +2,7 @@ import { Component } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import withNavigateHook from "../Navigation/WithNavigateHook";
+import TypeService from "../service/TypeService";
 class TypeRecherche extends Component{
     constructor (props){
         super(props);
@@ -11,8 +12,14 @@ class TypeRecherche extends Component{
         }
     }
     componentDidMount() {
-        
-    }
+        TypeService.getAllType()
+          .then((res) => {
+            this.setState({ type: res.data });
+          })
+          .catch((error) => {
+            console.error('Error fetching data: ', error);
+          });
+      }
     handleIdType = (e) => {
         var value = e.target.value;
         this.setState({
