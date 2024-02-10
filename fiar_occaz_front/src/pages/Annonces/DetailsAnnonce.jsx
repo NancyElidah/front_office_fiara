@@ -58,7 +58,7 @@ class DetailsAnnonce extends Component{
         }
         );
         }else {
-            this.props.navigation(`/login/${true}/${"details_annonce/" + this.state.id}`);
+            this.props.navigation(`/login/${true}/${"details_annonce"}/${this.state.id}`);
         }
     }
 

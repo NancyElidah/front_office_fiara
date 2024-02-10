@@ -13,7 +13,6 @@ class Login extends Component{
             lien : this.props.params.lien,
             email :'nelly@gmail.com',
 			motDePasse :'nelly'
-
 		};
 		this.OpenModal = this.OpenModal.bind(this);
 		this.closeOpen = this.closeOpen.bind(this);
@@ -59,7 +58,11 @@ class Login extends Component{
                     sessionStorage.setItem("utilisateur",res.data.user);
                     sessionStorage.setItem("token",res.data.token);
                     sessionStorage.setItem("user",res.data.name);
-                    this.props.navigation(`/${sessionStorage.getItem("token")}/${this.state.lien}`);
+					if(this.props.params.idUtils===null){
+						this.props.navigation(`/${sessionStorage.getItem("token")}/${this.state.lien}`);
+					}else{
+						this.props.navigation(`/${sessionStorage.getItem("token")}/${this.state.lien}/${this.props.params.idUtils}`);
+					}
 
                 }else{
                     alert("Erreur");

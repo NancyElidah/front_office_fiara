@@ -26,7 +26,9 @@ function App() {
           <Routes>
               <Route path="/" element= {<ListeAnnonce/>}/>
               <Route path="/details_annonce/:id" element= {<DetailsAnnonce/>}/>
+              <Route path="/:token/details_annonce/:id" element= {<DetailsAnnonce/>}/>
               <Route path="/login/:open/:lien" element= {<Login/>}/>
+              <Route path="/login/:open/:lien/:idUtils" element= {<Login/>}/>
               <Route path="/:token/liste_favoris" element= {<ListeFavoris/>}/>
               <Route path="/recherche" element= {<Recherche/>}/>
               <Route path="/recherche_type" element= {<TypeRecherche/>}/>
