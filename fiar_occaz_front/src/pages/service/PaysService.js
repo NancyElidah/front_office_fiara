@@ -9,4 +9,5 @@ class Pays {
         return axios.get(base_url+'/'+token+'/getById/'+idBoite +'/'+ id);
     }
 }
-export default new Pays();
+const PaysInstance = new Pays();
+export default PaysInstance;

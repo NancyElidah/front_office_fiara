@@ -9,4 +9,5 @@ class EnergieService {
         return axios.get(base_url+'/'+token+'/getById/'+idBoite+'/'+id);
     }
 }
-export default new EnergieService();
+const EnergieServiceInstance = new EnergieService();
+export default EnergieServiceInstance;

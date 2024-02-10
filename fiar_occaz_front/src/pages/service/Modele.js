@@ -9,4 +9,5 @@ class Modele {
         return axios.get(base_url+'/'+token+'/getone/'+id+'/'+ idBoite);
     }
 }
-export default new Modele();
+const ModeleInstance = new Modele();
+export default ModeleInstance;

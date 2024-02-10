@@ -3,7 +3,6 @@ import Header from "../Header";
 import Footer from "../Footer";
 import sary from "../assets/vendors/images/v1.jpg";
 import { Link } from "react-router-dom";
-import AnnonceServiceInstance from "../service/AnnonceService";
 
 class ListeRecherche extends Component {
     constructor(props) {

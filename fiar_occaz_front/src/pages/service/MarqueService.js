@@ -9,4 +9,5 @@ class MarqueService {
         return axios.get(base_url+'/'+token+'/getById/'+idBoite+'/'+id);
     }
 }
-export default new MarqueService();
+const MarqueServiceInstance = new MarqueService();
+export default MarqueServiceInstance;

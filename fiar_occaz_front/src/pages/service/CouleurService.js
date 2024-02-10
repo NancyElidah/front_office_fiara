@@ -9,4 +9,5 @@ class CouleurService {
         return axios.get(base_url+'/'+token+'/getById/'+idBoite+'/'+id);
     }
 }
-export default new CouleurService();
+const CouleurServiceInstance = new CouleurService();
+export default CouleurServiceInstance;

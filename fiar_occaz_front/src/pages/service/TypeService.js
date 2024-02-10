@@ -6,4 +6,5 @@ class Type {
         return axios.get(base_url+'/getall');
     }
 }
-export default new Type();
+const TypeInstance = new Type();
+export default TypeInstance;
