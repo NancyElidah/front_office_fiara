@@ -18,9 +18,7 @@ class ListeAnnonce extends Component {
     }
 
     fetchData = () => {
-        let token = sessionStorage.getItem("token");
-        let id = sessionStorage.getItem("utilisateur");
-        AnnonceServiceInstance.getAllPublication(token, id).then((res) => {
+        AnnonceServiceInstance.getAllPublication().then((res) => {
             this.setState({ liste_marque: res.data });
         });
     }
