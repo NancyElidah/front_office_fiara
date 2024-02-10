@@ -6,7 +6,7 @@ class AnnonceService {
         return axios.get(base_url+'/gets/1/0');
     }
     getOneAnnonce(id){
-        return axios.get(base_url+'/getOne/'+id);
+        return axios.get('https://fiarapartie2-production.up.railway.app/api/annonces/getOne/'+id);
     }
 }
 
