@@ -33,7 +33,7 @@ class DetailsAnnonce extends Component{
 
         AnnonceServiceInstance.getOneAnnonce(this.state.id).then((res) => {
             this.setState({ 
-                user :res.data.utilisateur,
+                user :res.data.voiture.utilisateur.nom,
                 description : res.data.description ,
                 prix:res.data.voiture.prix,
                 type:res.data.voiture.type.nom,
