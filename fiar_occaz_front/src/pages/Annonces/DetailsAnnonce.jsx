@@ -53,7 +53,13 @@ class DetailsAnnonce extends Component{
     addToFavoris(e){
 		e.preventDefault();
         if(sessionStorage.getItem("token")!== null && sessionStorage.getItem("utilisateur")!==null){
-            FavorisInstance.addFavoris().then(() => {
+            let token = sessionStorage.getItem("token");
+            let user = sessionStorage.getItem("utilisateur");
+            var favoris = {
+                iduser:user ,
+                idannonce : this.state.id  
+            };
+            FavorisInstance.addFavoris(token , user ,favoris).then(() => {
                 this.props.navigation(`/:${sessionStorage.getItem("token")}/liste_favoris`);    
         }
         );
