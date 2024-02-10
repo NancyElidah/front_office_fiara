@@ -5,8 +5,8 @@ class AnnonceService {
     getAllPublication(){
         return axios.get(base_url+'/gets/1/0');
     }
-    getOneAnnonce(token,id, idA){
-        return axios.get(base_url+'/'+token+'/getOne/'+id+'/'+idA);
+    getOneAnnonce(id){
+        return axios.get(base_url+'/getOne/'+id);
     }
 }
 
