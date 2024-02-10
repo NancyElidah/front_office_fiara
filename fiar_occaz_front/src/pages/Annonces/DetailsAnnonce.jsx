@@ -26,6 +26,7 @@ class DetailsAnnonce extends Component{
             nombre_place :'',
             nombre_porte:''
         }
+        this.addToFavoris = this.addToFavoris.bind(this);
     }
     componentDidMount() {
         this.fetchData();
@@ -75,7 +76,7 @@ class DetailsAnnonce extends Component{
                 
                 <div class="col-md-8">
                 <div className="pull-right">
-                    <button to="/" className="btn  btn-sm scroll-click" rel="content-y"  data-toggle="collapse"  ><i class="icon-copy fa fa-heart" aria-hidden="true" style={{width:20}}></i></button>
+                    <button onClick={this.addToFavoris} className="btn  btn-sm scroll-click" rel="content-y"  data-toggle="collapse"  ><i class="icon-copy fa fa-heart" aria-hidden="true" style={{width:20}}></i></button>
                 </div>
                 <div className="pull-right" style={{marginRight:20}}>
                     <Link to="/all_chat" className="btn  btn-sm scroll-click" rel="content-y"  data-toggle="collapse"  ><i class="icon-copy fa fa-wechat" aria-hidden="true"></i></Link>
