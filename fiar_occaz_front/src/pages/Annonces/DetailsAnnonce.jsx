@@ -3,12 +3,63 @@ import Header from "../Header";
 import Footer from "../Footer";
 import sary from "../assets/vendors/images/v1.jpg";	
 import { Link } from "react-router-dom";
+// import AnnonceServiceInstance
 
 
 class DetailsAnnonce extends Component{
-	// constructor(props){
-	// 	super(props);
-    // }
+	constructor(props){
+        super(props);
+        this.state = {
+            message: '',
+            id: this.props.params.id,
+            user :'',
+            description : '',
+            prix :'',
+            type :'',
+            modele:'',
+            marque:'',
+            boite:'',
+            energie:'',
+            couleur:'',
+            nombre_place :'',
+            nombre_porte:''
+        }
+        this.addToFavoris = this.addToFavoris.bind(this);
+    }
+    componentDidMount() {
+        this.fetchData();
+    }
+    fetchData = () => {
+
+        AnnonceServiceInstance.getOneAnnonce(this.state.id).then((res) => {
+            this.setState({ 
+                user :res.data.voiture.utilisateur.nom,
+                description : res.data.description ,
+                prix:res.data.voiture.prix,
+                type:res.data.voiture.type.nom,
+                modele:res.data.voiture.modele.nom,
+                marque:res.data.voiture.marque.nom,
+                boite:res.data.voiture.boiteVitesse.nom,
+                energie: res.data.voiture.energie.energie,
+                couleur:res.data.voiture.couleur.nom,
+                nombre_place:res.data.voiture.nbPlace,
+                nombre_porte:res.data.voiture.nbPorte
+            });
+        });
+    }
+
+    addToFavoris(e){
+		e.preventDefault();
+        if(sessionStorage.getItem("token")!== null && sessionStorage.getItem("utilisateur")!==null){
+            FavorisInstance.addFavoris().then(() => {
+                this.props.navigation(`/:${sessionStorage.getItem("token")}/liste_favoris`);    
+        }
+        );
+        }else {
+            // this.props.navigation(`/login/${true}/${"details_annonce/" + this.state.id}`);
+            this.props.navigation(`/login/${true}/${"liste_favoris"}`);
+        }
+    }
 
     render(){
 		return(
