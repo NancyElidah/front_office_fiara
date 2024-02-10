@@ -13,7 +13,7 @@ class Login extends Component{
             lien : this.props.params.lien,
             email :'nelly@gmail.com',
 			motDePasse :'nelly'
-			
+
 		};
 		this.OpenModal = this.OpenModal.bind(this);
 		this.closeOpen = this.closeOpen.bind(this);
@@ -103,13 +103,13 @@ class Login extends Component{
 										</div>
 										<form onSubmit={this.login}>
 											<div className="input-group custom">
-												<input type="email" className="form-control form-control-lg" placeholder="Votre email" onChange={this.handleEmail}/>
+												<input type="email" className="form-control form-control-lg" value={this.state.email} placeholder="Votre email" onChange={this.handleEmail}/>
 												<div className="input-group-append custom">
 													<span className="input-group-text"><i className="icon-copy dw dw-user1"></i></span>
 												</div>
 											</div>
 											<div className="input-group custom">
-												<input type="password" className="form-control form-control-lg" placeholder="**********"  onChange={this.handleMotDePasse}/>
+												<input type="password" className="form-control form-control-lg" value ={this.state.email} placeholder="**********"  onChange={this.handleMotDePasse}/>
 												<div className="input-group-append custom">
 													<span className="input-group-text"><i className="dw dw-padlock1"></i></span>
 												</div>
