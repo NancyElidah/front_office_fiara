@@ -109,7 +109,7 @@ class Login extends Component{
 												</div>
 											</div>
 											<div className="input-group custom">
-												<input type="password" className="form-control form-control-lg" value ={this.state.email} placeholder="**********"  onChange={this.handleMotDePasse}/>
+												<input type="password" className="form-control form-control-lg" value ={this.state.motDePasse} placeholder="**********"  onChange={this.handleMotDePasse}/>
 												<div className="input-group-append custom">
 													<span className="input-group-text"><i className="dw dw-padlock1"></i></span>
 												</div>
