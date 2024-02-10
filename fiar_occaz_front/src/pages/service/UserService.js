@@ -1,5 +1,5 @@
 import axios from 'axios';
-const base_url = "http://localhost:8080/login";
+const base_url = "https://fiarapartie2-production.up.railway.app/login";
 
 class UserService {
     loginUser(email, motDePasse){

@@ -11,8 +11,8 @@ class Login extends Component{
 		this.state = {
 			isOpen : this.props.params.open , 
             lien : this.props.params.lien,
-            email :'',
-			motDePasse :''
+            email :'nelly@gmail.com',
+			motDePasse :'nelly'
 		};
 		this.OpenModal = this.OpenModal.bind(this);
 		this.closeOpen = this.closeOpen.bind(this);
