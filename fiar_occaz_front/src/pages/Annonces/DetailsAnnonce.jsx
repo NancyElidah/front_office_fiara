@@ -52,7 +52,7 @@ class DetailsAnnonce extends Component{
 
     addToFavoris(e){
 		e.preventDefault();
-        if(sessionStorage.getItem("token")!== null && sessionStorage.getItem("utilisateur")){
+        if(sessionStorage.getItem("token")!== null && sessionStorage.getItem("utilisateur")!==null){
             FavorisInstance.addFavoris().then(() => {
                 this.props.navigation(`/:${sessionStorage.getItem("token")}/liste_favoris`);    
         }
