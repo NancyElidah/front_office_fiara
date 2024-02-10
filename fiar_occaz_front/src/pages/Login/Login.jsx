@@ -13,6 +13,7 @@ class Login extends Component{
             lien : this.props.params.lien,
             email :'nelly@gmail.com',
 			motDePasse :'nelly'
+			
 		};
 		this.OpenModal = this.OpenModal.bind(this);
 		this.closeOpen = this.closeOpen.bind(this);
