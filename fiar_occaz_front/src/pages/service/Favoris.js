@@ -1,6 +1,6 @@
 import axios from 'axios';
-const base_url = "https://fiarapartie2-production.up.railway.app/favoris";
-const base = "https://fiarapartie2-production.up.railway.app/v_favoris";
+const base_url = "https://fiarapartie2-production-2baf.up.railway.app/favoris";
+const base = "https://fiarapartie2-production-2baf.up.railway.app/v_favoris";
 
 class Favoris {
    addFavoris(token,id,favoris){
